@@ -48,7 +48,7 @@ const LoginPage = () => {
       <div className='col-span-4 col-start-5'>
         <div className='py-5'>
           <div className='flex m-5 justify-center'>
-          <Image alt="log-in-banner" src={loginImage} style={{width:"30%"}}/>
+          <Image alt="log-in-banner" src={loginImage} priority style={{width:"30%"}}/>
           </div>
         <h1 className='text-3xl text-center'>Log-In To Your Account</h1>
 

@@ -24,6 +24,7 @@ export const POST= async (request)=>{
     //fetching logged in user ID
     const authToken=request.cookies.get("authToken")?.value;
     const data=jwt.verify(authToken,process.env.JWT_KEY);
+    console.log("DATA = ",data);
     try{
         const work=new Work({
             title,
