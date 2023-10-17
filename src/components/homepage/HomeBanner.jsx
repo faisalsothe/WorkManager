@@ -1,5 +1,4 @@
 'use client'
-import React, { useContext, useEffect } from 'react';
 import TaskSvg from '../../assets/tasks.svg'
 import Image from 'next/image';
 import DynamicPage from './DynamicPageTitle';

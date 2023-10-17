@@ -1,9 +1,12 @@
 import { NextResponse } from 'next/server'
 import jwt from "jsonwebtoken"
  
-// This function can be marked `async` if using `await` inside
 export function middleware(request) {
     const authToken=request.cookies.get("authToken")?.value;
+    if(authToken){
+        const data=jwt.verify(authToken,process.env.JWT_SECRET);
+        console.log(data);
+    }
     if(request.nextUrl.pathname==="/api/login" || request.nextUrl.pathname==="/api/user"){
         return;
     }
@@ -16,7 +19,8 @@ export function middleware(request) {
         {
             if(!authToken)
         {
-            if(request.nextUrl.pathname.startsWith("/api")){
+            if(request.nextUrl.pathname.startsWith("/api"))
+            {
                 return NextResponse.json({
                     message:"Access Denied!!",
                     success:false

@@ -3,7 +3,7 @@ import ActionSection from '@/components/homepage/ActionSection';
 import FeatureSection from '@/components/homepage/FeatureSection';
 import BannerSection from '@/components/homepage/HomeBanner';
 import TestimonialSection from '@/components/homepage/TestimonialSection';
-import ContactSection from '@/components/homepage/ContactSection'
+import ContactSection from '@/app/contact/ContactSection'
 
 
 export default function Home() {
@@ -13,7 +13,6 @@ export default function Home() {
       <FeatureSection/>
       <ActionSection/>
       <TestimonialSection/>
-      <ContactSection/>
     </div>
   )
 }
