@@ -16,7 +16,6 @@ export async function logIn(logInData){
 export async function currentUser(){
     const result=await httpAxios.get("/api/current")
     .then((response)=>response.data);
-    return result;
 }
 
 export async function logout(){

@@ -18,33 +18,35 @@ const Task = ({task,deleteTaskParent}) => {
           }).then((result) => {
             if (result.isConfirmed) {
                 deleteTaskParent(taskId);
-              Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
+              setTimeout(()=>{
+                Swal.fire(
+                  'Deleted!',
+                  'Your file has been deleted.',
+                  'success'
+                )
+              },1000);
             }
           })
     }
 
 
   return (
-    <div className={`shadow-lg mt-2 rounded-md ${
+    <div className={`shadow-lg mt-2 rounded-md w-96 md:w-[960px] ${
         task.status=="completed"?"bg-green-800":"bg-gray-800"
         }`}>
         <div className='p-5'>
-            <div className='flex justify-between '>
-            <h1 className='text-1xl font-semibold'>{task.title}</h1>
+            <div className='flex justify-between gap-8'>
+            <h1 className='text-sm md:text-2xl font-semibold'>{task.title}</h1>
             <span onClick={()=>{
                 deleteTask(task._id) 
-            }} className='shadow-lg bg-gray-950 hover:bg-gray-850 rounded-full w-8 h-8 flex justify-center items-center cursor-pointer'><RxCross1/></span>
+            }} className='shadow-lg bg-gray-950 hover:bg-gray-850 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center cursor-pointer'><RxCross1/></span>
             </div>
-            <p className='font-normal'>{task.content}</p>
-            <div className='flex justify-between mt-3'>
-            <p className='text-left'>
+            <p className='text-sm md:text-2xl font-normal'>{task.content}</p>
+            <div className='flex justify-between gap-8 mt-3'>
+            <p className='text-left text-sm md:text-xl'>
                 Status:<span className="font-bold">{task.status}</span>
             </p>
-            <p className='tex-right'>
+            <p className='tex-right text-sm md:text-xl'>
                 Author: <span className='font-bold'>{user.name}</span>
             </p>
             </div>

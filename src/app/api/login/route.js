@@ -8,7 +8,7 @@ export async function POST(request){
 
     try{
         //1. get user
-        const user=await User.findOne({email:email});
+        const user=await User.findOne({email:email}).maxTimeMS(20000);
         if(user===null){
             throw new Error("User Not Found");
         }
@@ -21,7 +21,7 @@ export async function POST(request){
         const authToken=jwt.sign({
             _id:user._id,
             name:user.name
-        },process.env.JWT_KEY);
+        },process.env.JWT_SECRET);
         //4. create NextResponse-- cookie
         const response=NextResponse.json({
             message:"Login Success",
@@ -33,6 +33,7 @@ export async function POST(request){
             httpOnly:true
         });
         return response;
+        
     }catch(error){
         console.log(error);
         return NextResponse.json({

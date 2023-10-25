@@ -3,10 +3,16 @@ import jwt from "jsonwebtoken"
  
 export function middleware(request) {
     const authToken=request.cookies.get("authToken")?.value;
-    if(authToken){
-        const data=jwt.verify(authToken,process.env.JWT_SECRET);
-        console.log(data);
+
+    try{
+        if(authToken){
+            const data=jwt.verify(authToken,process.env.JWT_SECRET);
+            console.log("MIDDLEWARE-DATA:- ",data);
+        }
+    }catch(error){
+        console.log(error);
     }
+
     if(request.nextUrl.pathname==="/api/login" || request.nextUrl.pathname==="/api/user"){
         return;
     }
@@ -33,6 +39,11 @@ export function middleware(request) {
         }   
         }
         }
+        //verify
+        // if(authToken){
+        //     const data=jwt.verify(authToken,secret_key);
+        //     console.log(data);
+        // }
         }
 
 // See "Matching Paths" below to learn more

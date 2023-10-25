@@ -1,7 +1,9 @@
+import UserContext from '@/context/userContext';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 
 const ActionSection = () => {
+  const context=useContext(UserContext);
   return (
     <section className="bg-blue-700 py-12">
       <div className="container mx-auto text-center text-white">
@@ -10,14 +12,15 @@ const ActionSection = () => {
           Start organizing your tasks and boosting your productivity today.
         </p>
         <Link
-          href="/sign-up"
+          href={context?.user ? '/add-task' : '/sign-up' }
           className="bg-white text-blue-500 font-semibold py-3 px-6 rounded-full transition duration-300 ease-in-out inline-block"
         >
-          Start Now
+          {context?.user ? "Add Your First Assignment" : "Get Started"}
         </Link>
       </div>
     </section>
   );
 };
 
+        
 export default ActionSection;

@@ -24,14 +24,13 @@ export async function GET(request){
 
 //Post function (Create a User)
 export async function POST(request){
-    const {name,email,password,about,profileURL}=await request.json()
+    const {name,email,password,about}=await request.json()
 
     const user=new User({
         name,
         email,
         password,
         about,
-        profileURL
     });
 
     try{

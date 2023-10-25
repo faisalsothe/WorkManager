@@ -12,7 +12,6 @@ const userSchema = new Schema({
         required:[true,"Password Required!!"]
     },
     about:String,
-    profileURL: String,
 });
 
 export const User = mongoose.models.users || mongoose.model('users',userSchema);

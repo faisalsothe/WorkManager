@@ -35,7 +35,7 @@ const TestimonialSection = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Display three slides at a time
+    slidesToShow: 1,
     slidesToScroll: 1,
   };
 

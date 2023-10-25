@@ -23,7 +23,7 @@ export const POST= async (request)=>{
 
     //fetching logged in user ID
     const authToken=request.cookies.get("authToken")?.value;
-    const data=jwt.verify(authToken,process.env.JWT_KEY);
+    const data=jwt.verify(authToken,process.env.JWT_SECRET);
     try{
         const work=new Work({
             title,

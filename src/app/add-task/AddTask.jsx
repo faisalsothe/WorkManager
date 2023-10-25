@@ -41,19 +41,19 @@ const AddTask = () => {
 
   return (
     // Title
-    <div className='grid grid-cols-12 justify-center'>
-        <div className='col-span-4 col-start-5 p-5'>
-          <div className='my-2 flex justify-center'>
-            <Image src={loginSvg} alt="login_banner_img" style={
-              {width:"50%"}
+    <div className=''>
+        <div className='flex flex-col justify-center items-center p-5'>
+          <div className='my-2 flex justify-center items-center'>
+            <Image src={loginSvg} priority alt="login_banner_img" style={
+              {width:"30%"}
             }/>
           </div>
-        <h1 className='text-1xl'>Add your Task Here</h1>
+        <h1 className='text-1xl text-center'>Add your Task Here</h1>
         <form action="/" onSubmit={handleAddTask}>
           {/* Title */}
           <div className='mt-4'>
             <label htmlFor="taskTitle" className='block text-sm font-medium mb-2'>Title:</label>
-            <input type="text" name="taskTitle" id="task_title" className='rounded-3xl w-full p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800'
+            <input type="text" name="taskTitle" id="task_title" className='w-full rounded-3xl md:w-80 p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800'
             onChange={(event)=>{
               setTask({
                 ...task,
@@ -65,7 +65,7 @@ const AddTask = () => {
           {/* Content */}
           <div className='mt-4'>
             <label htmlFor="taskContent" className='block text-sm font-medium mb-2'>Content:</label>
-            <textarea className='rounded-3xl w-full p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800' name="taskContent" id="task_content" rows="5"
+            <textarea className='rounded-3xl w-full md:w-80 p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800' name="taskContent" id="task_content" rows="5"
             onChange={(event)=>{
               setTask({
                 ...task,
@@ -78,7 +78,7 @@ const AddTask = () => {
           {/* Status */}
           <div className='mt-4' >
           <label htmlFor="taskStatus" className='block text-sm font-medium mb-2'>Status:</label>
-          <select name="taskStatus" id="task_status" className='rounded-3xl w-full p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800'
+          <select name="taskStatus" id="task_status" className='rounded-3xl w-full md:w-80 p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800'
           onChange={(event)=>{
             setTask({
               ...task,

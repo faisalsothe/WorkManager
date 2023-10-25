@@ -41,13 +41,12 @@ export const GET=async (request,{params})=>{
 //Update specific user
 export const PUT= async (request,{params})=>{
     const {userId} = params;
-    const {name, password, about, profileURL}=await request.json();
+    const {name, password, about}=await request.json();
     try{
         const user=await User.findById(userId);
         user.name=name;
         user.password=password;
         user.about=about;
-        user.profileURL=profileURL;
 
         const updatedUser=await user.save();
         return NextResponse.json(updatedUser);

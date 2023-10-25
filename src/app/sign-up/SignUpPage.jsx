@@ -14,7 +14,6 @@ const SignUpPage = () => {
     email:"",
     password:"",
     about:"",
-    profileURL:"https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png"
   })
 
   const router=useRouter();
@@ -32,19 +31,19 @@ const SignUpPage = () => {
       return;
     }
     if(data.email.trim()==='' || data.email==null){
-      toast.warning("name is required",{
+      toast.warning("email is required",{
         position:"top-center"
       });
       return;
     }
     if(data.password.trim()==='' || data.password===null){
-      toast.warning("name is required",{
+      toast.warning("password is required",{
         position:"top-center"
       });
       return;
     }
     if(data.about.trim()==='' || data.about===null){
-      toast.warning("name is required",{
+      toast.warning("about is required",{
         position:"top-center"
       });
       return;
@@ -79,11 +78,9 @@ const SignUpPage = () => {
     }
 
   return (
-    <div className='grid grid-col-12 justify-center'>
-      <div className='col-span-4 col-start-5'>
-        <div className='py-5'>
+    <div className='flex flex-col items-center justify-center py-5'>
           <div className="flex m-5 justify-center">
-          <Image src={SignUpSvg} alt="sign-in-banner" style={{
+          <Image src={SignUpSvg} priority alt="sign-in-banner" style={{
             width:"30%"
           }}/>
           </div>
@@ -92,7 +89,7 @@ const SignUpPage = () => {
             {/* Name */}
             <div className="mt-3">
               <label htmlFor="user_name" placeholder='Enter here' className='block text-sm font-medium mb-2'>Username</label>
-              <input type="text" name="user_name" id="user_name" className='rounded-3xl w-full p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800' onChange={(event)=>{
+              <input type="text" name="user_name" id="user_name" className='rounded-3xl w-max md:w-96 p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800' onChange={(event)=>{
                 setData({
                   ...data,
                 name:event.target.value
@@ -104,7 +101,7 @@ const SignUpPage = () => {
              {/* Email */}
              <div className="mt-3">
               <label htmlFor="email" placeholder='Enter here' className='block text-sm font-medium mb-2'>Email</label>
-              <input type="email" name="email" id="email" className='rounded-3xl w-full p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800' onChange={(event)=>{
+              <input type="email" name="email" id="email" className='rounded-3xl w-max md:w-96 p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800' onChange={(event)=>{
                 setData({
                   ...data,
                 email:event.target.value
@@ -115,7 +112,7 @@ const SignUpPage = () => {
              {/* Password */}
              <div className="mt-3">
               <label htmlFor="user_password" placeholder='Enter here' className='block text-sm font-medium mb-2'>Password</label>
-              <input type="password" name="user_password" id="user_password" className='rounded-3xl w-full p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800' 
+              <input type="password" name="user_password" id="user_password" className='rounded-3xl w-max md:w-96 p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800' 
               onChange={(event)=>{
                 setData({
                   ...data,
@@ -127,7 +124,7 @@ const SignUpPage = () => {
              {/* About */}
              <div className="mt-3">
               <label htmlFor="user_about" placeholder='Enter here' className='block text-sm font-medium mb-2'>About</label>
-              <textarea name="user_about" id="user_about" className='rounded-3xl w-full p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800' rows="5"
+              <textarea name="user_about" id="user_about" className='rounded-3xl w-max md:w-96 p-3 bg-gray-800 focus:ring-gray-100 border border-gray-800' rows="5"
               onChange={(event)=>{
                 setData({
                   ...data,
@@ -142,10 +139,6 @@ const SignUpPage = () => {
             </div>
           </form>
         </div>
-      </div>
-    </div>
-
-
   )
 }
 
