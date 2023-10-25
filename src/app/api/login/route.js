@@ -2,11 +2,13 @@ import { User } from "@/models/user";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken";
+import { connectDB } from "@/app/helper/db";
 
 export async function POST(request){
     const {email,password}=await request.json();
 
     try{
+        connectDB();
         //1. get user
         const user=await User.findOne({email:email}).maxTimeMS(20000);
         if(user===null){
